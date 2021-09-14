@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ArrowTest : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class ArrowTest : MonoBehaviour
     [SerializeField]
     private LineRenderer direction = null;// 発射方向
 
-    private const float MaxMagnitude = 3f;// 最大付与力量
+    private const float MaxMagnitude = 360f;// 最大付与力量
 
     private Vector2 currentForce = Vector2.zero;// 発射方向の力
 
@@ -24,7 +25,7 @@ public class ArrowTest : MonoBehaviour
     {
         this.physics = this.GetComponent<Rigidbody2D>();
         this.mainCamera = Camera.main;
-        this.mainCameraTransform = this.mainCamera.transform;
+        //this.mainCameraTransform = this.mainCamera.transform;
     }
 
 
@@ -52,7 +53,7 @@ public class ArrowTest : MonoBehaviour
 
         this.direction.enabled = true;
         this.direction.SetPosition(0, this.physics.position);
-        this.direction.SetPosition(1, new Vector2(this.physics.position.x, this.physics.position.y *-1));
+        this.direction.SetPosition(1, new Vector2(this.physics.position.x, this.physics.position.y*-1));
         
     }
 
@@ -69,7 +70,8 @@ public class ArrowTest : MonoBehaviour
         }
 
         this.direction.SetPosition(0, this.physics.position);
-        this.direction.SetPosition(1, new Vector2(( this.physics.position.x + this.currentForce.x), this.physics.position.y + this.currentForce.y)*-1);
+        this.direction.SetPosition(1, new Vector2(this.physics.position.x + this.currentForce.x, this.physics.position.y + this.currentForce.y)*-1);
+    
     }
 
     /// <summary>
