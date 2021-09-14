@@ -53,7 +53,8 @@ public class ArrowTest : MonoBehaviour
 
         this.direction.enabled = true;
         this.direction.SetPosition(0, this.physics.position);
-        this.direction.SetPosition(1, new Vector2(this.physics.position.x, this.physics.position.y*-1));
+        this.direction.SetPosition(1,  new Vector2(this.physics.position.x, this.physics.position.y*-1));
+        this.direction.SetPosition(1,  new Vector2(this.physics.position.x, this.physics.position.y*-1));
         
     }
 
@@ -70,8 +71,8 @@ public class ArrowTest : MonoBehaviour
         }
 
         this.direction.SetPosition(0, this.physics.position);
-        this.direction.SetPosition(1, new Vector2(this.physics.position.x + this.currentForce.x, this.physics.position.y + this.currentForce.y)*-1);
-    
+        this.direction.SetPosition(1, new Vector2(this.physics.position.x + this.currentForce.x*-1, this.physics.position.y + this.currentForce.y*-1));
+
     }
 
     /// <summary>
